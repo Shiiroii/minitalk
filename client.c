@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lionelulm <lionelulm@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 14:57:07 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/04/09 16:41:31 by lionelulm        ###   ########.fr       */
+/*   Updated: 2024/04/12 15:22:26 by lulm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,15 @@ void	ft_transfer_message(pid_t srv_pid, char *message)
 				kill(srv_pid, SIGURS1);
 			else
 				kill(srv_pid, SIGURS2);
-			usleep(50);
+/*si jamais ya un probleme de timing, change la valeur a 50 ou plus haut*/
+			usleep(25);
 			car <<= 1;
 		}
 		message++;
 	}
+}
+
+void	minitalk_client()
+{
+	
 }
