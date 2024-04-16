@@ -3,13 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lionelulm <lionelulm@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 14:57:04 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/04/10 18:16:45 by lionelulm        ###   ########.fr       */
+/*   Updated: 2024/04/16 15:26:17 by lulm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+int	ft_print_pid(int pid)
+{
+	pid = fork()
+	if (pid < 0)
+	{
+		ft_printf()
+	}
+	if (pid == 0)
+	{
+		getpid
+	}
+}
 
 

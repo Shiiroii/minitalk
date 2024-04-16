@@ -6,7 +6,7 @@
 /*   By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 14:57:07 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/04/12 15:22:26 by lulm             ###   ########.fr       */
+/*   Updated: 2024/04/16 15:26:47 by lulm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	ft_checker(int argc, char **argv)
 
 	i = 0;
 	if (argc != 3)
-		handle_errors("Wrong number of arguments");
+		ft_printf("Wrong number of arguments");
 	while (argv[1][i])
 		if (ft_isdigit(argv[1][i++]) == 0)
-			handle_errors("Invalid PID");
+			ft_printf("Invalid PID");
 	if (*argv[2] == 0)
-		handle_errors("Empty message");
+		ft_printf("Empty message");
 }
 
 void	ft_transfer_message(pid_t srv_pid, char *message)
@@ -51,5 +51,5 @@ void	ft_transfer_message(pid_t srv_pid, char *message)
 
 void	minitalk_client()
 {
-	
+
 }
