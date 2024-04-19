@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lionelulm <lionelulm@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 14:52:25 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/03/31 14:58:28 by lionelulm        ###   ########.fr       */
+/*   Updated: 2024/04/19 18:01:01 by lulm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,7 @@
 
 # include <signal.h>
 # include "libft/libft.h"
+
+int	ft_print_pid(int pid);
 
 #endif

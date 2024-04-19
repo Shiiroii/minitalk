@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 14:57:04 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/04/19 17:04:26 by lulm             ###   ########.fr       */
+/*   Created: 2024/04/19 17:48:42 by lulm              #+#    #+#             */
+/*   Updated: 2024/04/19 17:53:50 by lulm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int	ft_print_pid(int pid)
+int	main()
 {
-	pid = fork()
-	if (pid < 0)
-		return (1);
-	if (pid == 0)
-	{
-		ft_printf("Server's PID: %d\n" getpid());
-	}
-	return (0);
+	int	u;
+
+	u = ft_print_pid;
 }
-
-
