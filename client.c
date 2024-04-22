@@ -6,7 +6,7 @@
 /*   By: lionelulm <lionelulm@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 14:57:07 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/04/22 08:57:32 by lionelulm        ###   ########.fr       */
+/*   Updated: 2024/04/22 09:12:20 by lionelulm        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ int	ft_checkerclient(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	if (ft_checker(argc, argv) != 0)
+	if (ft_checkerclient(argc, argv) != 0)
 		return(1);
 	pid_t	pid;
 
 	pid = ft_atoi(argv[1]);
 	if (pid == 0 && argv[1][0] != '0')
 	{
-		printf("Invalid PID\n")
+		printf("Invalid PID\n");
 		exit(1);
 	}
 	ft_transfer_message(pid, argv[2]);
