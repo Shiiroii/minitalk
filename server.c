@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lionelulm <lionelulm@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 14:57:04 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/04/22 09:11:49 by lionelulm        ###   ########.fr       */
+/*   Updated: 2024/04/22 10:02:00 by lulm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(void)
 {
 	ft_printf("Server's PID: %d\n", getpid());
 	ft_usechecker();
-	while(1)
+	while (1)
 		pause();
 	return (0);
 }

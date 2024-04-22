@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 14:52:25 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/04/22 10:02:26 by lulm             ###   ########.fr       */
+/*   Created: 2023/12/09 07:50:05 by lulm              #+#    #+#             */
+/*   Updated: 2023/12/09 08:36:17 by lulm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "ft_printf.h"
 
-# include <signal.h>
-# include "libft/libft.h"
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
 
-int		ft_print_pid(int pid);
-int		ft_checkerclient(int argc, char **argv);
-void	ft_checkerserv(int sig);
-void	ft_usechecker(void);
-
-#endif
+	i = 0;
+	while (str[i])
+	{
+		i++;
+	}
+	return (i);
+}

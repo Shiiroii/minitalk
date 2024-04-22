@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/31 14:52:25 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/04/22 10:02:26 by lulm             ###   ########.fr       */
+/*   Created: 2023/12/09 07:48:19 by lulm              #+#    #+#             */
+/*   Updated: 2024/02/01 09:57:31 by lulm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "ft_printf.h"
 
-# include <signal.h>
-# include "libft/libft.h"
+int	ft_putchar(char c)
+{
+	return (write(1, &c, 1));
+}
 
-int		ft_print_pid(int pid);
-int		ft_checkerclient(int argc, char **argv);
-void	ft_checkerserv(int sig);
-void	ft_usechecker(void);
-
-#endif
+int	ft_putchar_fd(char c, int fd)
+{
+	return (write(fd, &c, 1));
+}
