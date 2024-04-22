@@ -21,6 +21,7 @@
 # include <limits.h>
 # include <errno.h>
 # include "libft.h"
+# include "ft_printf/ft_printf.h"
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
