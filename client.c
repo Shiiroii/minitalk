@@ -6,7 +6,7 @@
 /*   By: lionelulm <lionelulm@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 14:57:07 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/04/22 09:12:20 by lionelulm        ###   ########.fr       */
+/*   Updated: 2024/04/24 17:59:34 by lionelulm        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_transfer_message(pid_t srv_pid, char *message)
 			else
 				kill(srv_pid, SIGUSR2);
 /*si jamais ya un probleme de timing, change la valeur a 50 ou plus haut*/
-			usleep(25);
+			usleep(50);
 			car <<= 1;
 		}
 		message++;

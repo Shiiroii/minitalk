@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lionelulm <lionelulm@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 07:35:19 by lulm              #+#    #+#             */
-/*   Updated: 2024/02/01 11:27:55 by lulm             ###   ########.fr       */
+/*   Updated: 2024/04/25 18:18:07 by lionelulm        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_argofprint(va_list arg, const char *ptr, int i)
 
 	print = 0;
 	if (ptr[i] == 'c')
-		print += ft_putchar_fd(va_arg(arg, int), 1);
+		print += ft_putcharprintf_fd(va_arg(arg, int), 1);
 	else if (ptr[i] == 's')
 		print += ft_putstr(va_arg(arg, char *));
 	else if (ptr[i] == 'p')
