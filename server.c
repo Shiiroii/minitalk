@@ -6,7 +6,7 @@
 /*   By: lionelulm <lionelulm@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 14:57:04 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/04/25 18:00:51 by lionelulm        ###   ########.fr       */
+/*   Updated: 2024/04/26 10:47:30 by lionelulm        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,30 @@
 
 void	ft_checkerserv(int sig)
 {
-	static int				i;
-	unsigned char	statcar;
-	unsigned char			car;
-
-	i = 0;
-	statcar = 0;
-	car = (sig == SIGUSR1);
-	statcar |= (car << i);
+	static int				i = 0;
+	static unsigned char	statcar = 0;
+	if (sig == SIGUSR1)
+		statcar = (statcar << 1) | 0b00000001;
+	else if (sig == SIGUSR2)
+		statcar = statcar << 1;
 	i++;
 	if (i == 8)
 	{
-		ft_putchar_fd(statcar, 1);
-		statcar = 0;
+		ft_printf("%c", statcar);
 		i = 0;
+		statcar = 0;
 	}
-}
-
-void	ft_usechecker(void)
-{
-	struct sigaction	check;
-
-	check.sa_handler = &ft_checkerserv;
-	check.sa_flags = SA_SIGINFO;
-	if (sigaction(SIGUSR1, &check, NULL) == -1)
-		exit(1);
-	if (sigaction(SIGUSR2, &check, NULL) == -1)
-		exit(1);
 }
 
 int	main(void)
 {
+	struct sigaction	handler;
+
 	ft_printf("Server's PID: %d\n", getpid());
-	ft_usechecker();
+	handler.sa_handler = &ft_checkerserv;
+	sigaction(SIGUSR1, &handler, NULL);
+	sigaction(SIGUSR2, &handler, NULL);
 	while (1)
 		pause();
 	return (0);
 }
-
-

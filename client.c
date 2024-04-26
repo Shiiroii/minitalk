@@ -6,7 +6,7 @@
 /*   By: lionelulm <lionelulm@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 14:57:07 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/04/24 17:59:34 by lionelulm        ###   ########.fr       */
+/*   Updated: 2024/04/26 09:55:23 by lionelulm        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	ft_transfer_message(pid_t srv_pid, char *message)
 				kill(srv_pid, SIGUSR1);
 			else
 				kill(srv_pid, SIGUSR2);
-/*si jamais ya un probleme de timing, change la valeur a 50 ou plus haut*/
 			usleep(50);
 			car <<= 1;
 		}
@@ -42,20 +41,20 @@ int	ft_checkerclient(int argc, char **argv)
 	i = 0;
 	if (argc != 3)
 	{
-		ft_printf("Wrong number of arguments");
+		ft_printf("Wrong number of arguments (Usage: ./client [PID] [Text])\n");
 		return (1);
 	}
 	while (argv[1][i])
 	{
 		if (ft_isdigit(argv[1][i++]) == 0)
 		{
-			ft_printf("Invalid PID");
+			ft_printf("Invalid PID\n");
 			return (1);
 		}
 	}
 	if (*argv[2] == 0)
 	{
-		ft_printf("Empty message");
+		ft_printf("Empty message\n");
 		return (1);
 	}
 	return (0);
@@ -70,7 +69,7 @@ int	main(int argc, char **argv)
 	pid = ft_atoi(argv[1]);
 	if (pid == 0 && argv[1][0] != '0')
 	{
-		printf("Invalid PID\n");
+		ft_printf("Invalid PID\n");
 		exit(1);
 	}
 	ft_transfer_message(pid, argv[2]);
