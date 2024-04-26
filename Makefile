@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lionelulm <lionelulm@student.42.fr>        +#+  +:+       +#+         #
+#    By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/16 15:27:21 by lulm              #+#    #+#              #
-#    Updated: 2024/04/26 09:33:16 by lionelulm        ###   ########.fr        #
+#    Updated: 2024/04/26 11:20:11 by lulm             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,17 +32,22 @@ OBJS_CLIENT = $(SRCS_CLIENT:.c=.o)
 
 all: $(SERVER) $(CLIENT)
 
-$(SERVER): $(OBJS_SERVER) $(LIBFT)
-		$(CC) $(CFLAGS) $(OBJS_SERVER) -o $(SERVER) $(LIBFT) $(PRINTF)
+$(SERVER): $(OBJS_SERVER) $(LIBFT) $(PRINTF)
+		$(CC) $(CFLAGS) $(OBJS_SERVER) $(LIBFT) $(PRINTF) -o $(SERVER)
 
-$(CLIENT): $(OBJS_CLIENT) $(LIBFT)
-		$(CC) $(CFLAGS) $(OBJS_CLIENT) -o $(CLIENT) $(LIBFT) $(PRINTF)
+$(CLIENT): $(OBJS_CLIENT) $(LIBFT) $(PRINTF)
+		$(CC) $(CFLAGS) $(OBJS_CLIENT) $(LIBFT) $(PRINTF) -o $(CLIENT)
 
 $(LIBFT):
 		$(MAKE) -C ./libft
 
+ $(PRINTF):
+		$(MAKE) -C ./ft_printf
+
 clean:
 	rm -f $(OBJS_SERVER) $(OBJS_CLIENT)
+	$(MAKE) -C ./libft fclean
+	$(MAKE) -C ./ft_printf fclean
 
 fclean:	clean
 	rm -f $(SERVER) $(CLIENT)

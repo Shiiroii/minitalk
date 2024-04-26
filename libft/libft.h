@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lionelulm <lionelulm@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:12:53 by lulm              #+#    #+#             */
-/*   Updated: 2024/04/25 18:30:47 by lionelulm        ###   ########.fr       */
+/*   Updated: 2024/04/26 11:16:35 by lulm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 # include <stdint.h>
 # include <limits.h>
 # include <errno.h>
-# include "libft.h"
-# include "ft_printf/ft_printf.h"
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);

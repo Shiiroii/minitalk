@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lionelulm <lionelulm@student.42.fr>        +#+  +:+       +#+        */
+/*   By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 14:57:04 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/04/26 10:47:30 by lionelulm        ###   ########.fr       */
+/*   Updated: 2024/04/26 11:05:52 by lulm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_checkerserv(int sig)
 {
 	static int				i = 0;
 	static unsigned char	statcar = 0;
+
 	if (sig == SIGUSR1)
 		statcar = (statcar << 1) | 0b00000001;
 	else if (sig == SIGUSR2)
