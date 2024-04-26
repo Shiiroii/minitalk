@@ -6,7 +6,7 @@
 /*   By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 14:57:07 by lionelulm         #+#    #+#             */
-/*   Updated: 2024/04/26 11:25:23 by lulm             ###   ########.fr       */
+/*   Updated: 2024/04/26 11:28:16 by lulm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_transfer_message(pid_t srv_pid, char *message)
 		message++;
 	}
 }
+/*increase or decrease the number used by usleep if needed (k0 is slower)*/
 
 int	ft_checkerclient(int argc, char **argv)
 {
@@ -63,7 +64,7 @@ int	ft_checkerclient(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	if (ft_checkerclient(argc, argv) != 0)
-		return(1);
+		return (1);
 	pid_t	pid;
 
 	pid = ft_atoi(argv[1]);
