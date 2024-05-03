@@ -6,7 +6,7 @@
 #    By: lulm <lulm@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/16 15:27:21 by lulm              #+#    #+#              #
-#    Updated: 2024/04/26 11:20:11 by lulm             ###   ########.fr        #
+#    Updated: 2024/05/03 11:12:00 by lulm             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CLIENT = client
 
 CC		= cc
 
-CFLAGS	= -Wall -Werror -Wextra
+CFLAGS	= -Wall -Werror -Wextra -g3 -fsanitize=address
 
 RM		= rm -fr
 
