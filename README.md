@@ -10,6 +10,6 @@ The program will be able to communicate between client and server using SIGUSR1 
 
 3. Write ./server.
 
-4. Write ./client <PID printed by the server> "Write the string you want the server to receive".
+4. Write ./client [PID printed by the server] "Write the string you want the server to receive".
 
 5. IF NEEDED, in client.c, in ft_transfer_message(), change the number used by usleep, increase it if the program is too fast, decrease if it is too slow.
