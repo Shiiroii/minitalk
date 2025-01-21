@@ -6,28 +6,40 @@
 /*   By: liulm <liulm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 10:51:44 by liulm             #+#    #+#             */
-/*   Updated: 2024/12/10 12:41:30 by liulm            ###   ########.fr       */
+/*   Updated: 2025/01/21 16:21:38 by liulm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+void	is_it_done(int sig)
+{
+	(void)sig;
+	finished = true;
+}
 
 void	ft_transfer_message(pid_t srv_pid, char *message)
 {
 	unsigned char	car;
 	int				bits;
 
+	check.sa_handler = is_it_done;
+	check.sa_flags = 0;
+	sigemptyset(&check.sa_mask);
+	sigaction(SIGUSR1,&check, NULL);
 	while (*message)
 	{
 		car = *message;
 		bits = 8;
 		while (bits--)
 		{
+			finished = false;
 			if (car & (1 << 7))
 				kill(srv_pid, SIGUSR1);
 			else
 				kill(srv_pid, SIGUSR2);
-			usleep(500);
+			while (!finished)
+				pause();
 			car <<= 1;
 		}
 		message++;
@@ -73,5 +85,6 @@ int	main(int argc, char **argv)
 		exit(1);
 	}
 	ft_transfer_message(pid, argv[2]);
+	ft_transfer_message(pid, "\0");
 	return (0);
 }
