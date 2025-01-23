@@ -6,7 +6,7 @@
 /*   By: liulm <liulm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 10:51:44 by liulm             #+#    #+#             */
-/*   Updated: 2025/01/23 16:23:47 by liulm            ###   ########.fr       */
+/*   Updated: 2025/01/23 16:27:21 by liulm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ft_transfer_message(pid_t srv_pid, char *message)
 	unsigned char		car;
 	int					bits;
 	struct sigaction	check;
-	bool	finished = false;
 
 	check.sa_handler = is_it_done;
 	check.sa_flags = 0;
