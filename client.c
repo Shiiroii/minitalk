@@ -6,7 +6,7 @@
 /*   By: liulm <liulm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 10:51:44 by liulm             #+#    #+#             */
-/*   Updated: 2025/01/23 16:27:21 by liulm            ###   ########.fr       */
+/*   Updated: 2025/01/23 16:31:35 by liulm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	is_it_done(int sig)
 {
 	(void)sig;
-	finished = true;
+	g_finished = true;
 }
 
 void	ft_transfer_message(pid_t srv_pid, char *message)
@@ -27,19 +27,19 @@ void	ft_transfer_message(pid_t srv_pid, char *message)
 	check.sa_handler = is_it_done;
 	check.sa_flags = 0;
 	sigemptyset(&check.sa_mask);
-	sigaction(SIGUSR1,&check, NULL);
+	sigaction(SIGUSR1, &check, NULL);
 	while (*message)
 	{
 		car = *message;
 		bits = 8;
 		while (bits--)
 		{
-			finished = false;
+			g_finished = false;
 			if (car & (1 << 7))
 				kill(srv_pid, SIGUSR1);
 			else
 				kill(srv_pid, SIGUSR2);
-			while (!finished)
+			while (!g_finished)
 				pause();
 			car <<= 1;
 		}

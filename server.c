@@ -6,7 +6,7 @@
 /*   By: liulm <liulm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:21:50 by liulm             #+#    #+#             */
-/*   Updated: 2025/01/21 16:19:24 by liulm            ###   ########.fr       */
+/*   Updated: 2025/01/23 16:31:48 by liulm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ft_server_checker(int sig, siginfo_t *info, void *signal)
 {
 	static int				i = 0;
 	static unsigned char	statcar = 0;
-	(void)signal;
 
+	(void)signal;
 	if (sig == SIGUSR1)
 		statcar = (statcar << 1) | 0b00000001;
 	else if (sig == SIGUSR2)
