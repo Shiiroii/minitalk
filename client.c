@@ -75,7 +75,7 @@ int	ft_client_checker(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	pid_t	pid;
+	pid_t	pid; /* int qui represente le process ID du signal */
 
 	if (ft_client_checker(argc, argv) != 0)
 		return (1);
