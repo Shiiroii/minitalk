@@ -6,7 +6,7 @@
 /*   By: liulm <liulm@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 10:51:44 by liulm             #+#    #+#             */
-/*   Updated: 2025/01/29 15:03:39 by liulm            ###   ########.fr       */
+/*   Updated: 2025/02/03 14:35:04 by liulm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_transfer_message(pid_t srv_pid, char *message)
 	struct sigaction	check;
 
 	check.sa_handler = is_it_done;
-	check.sa_flags = 0;
+	check.sa_flags = SA_RESTART;
 	sigemptyset(&check.sa_mask);
 	sigaction(SIGUSR1, &check, NULL);
 	while (*message)
@@ -40,7 +40,7 @@ void	ft_transfer_message(pid_t srv_pid, char *message)
 			else
 				kill(srv_pid, SIGUSR2);
 			while (!g_finished)
-				pause();
+				usleep(400);
 			car <<= 1;
 		}
 		message++;
