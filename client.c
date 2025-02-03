@@ -15,7 +15,7 @@
 void	is_it_done(int sig)
 {
 	(void)sig;
-	g_finished = true; // variable globale me permettant de savoir quand le signal a ete envoye et recu //
+	g_finished = true; /* variable globale me permettant de savoir quand le signal a ete envoye et recu */
 }
 
 void	ft_transfer_message(pid_t srv_pid, char *message)
@@ -24,10 +24,10 @@ void	ft_transfer_message(pid_t srv_pid, char *message)
 	int					bits;
 	struct sigaction	check;
 
-	check.sa_handler = is_it_done; // recoit a chaque envoi du signal le numero de celui-ci, permettant alors de faire une action a chaque fois // 
-	check.sa_flags = SA_RESTART; // permet de remettre a zero lors de linitialisation des signaux //
-	sigemptyset(&check.sa_mask); // initialise et vide un signal //
-	sigaction(SIGUSR1, &check, NULL); // sigaction permet de gerer les processus d'un signal specifique //
+	check.sa_handler = is_it_done; /* recoit a chaque envoi du signal le numero de celui-ci, permettant alors de faire une action a chaque fois */ 
+	check.sa_flags = SA_RESTART; /* permet de remettre a zero lors de linitialisation des signaux */
+	sigemptyset(&check.sa_mask); /* initialise et vide un signal */
+	sigaction(SIGUSR1, &check, NULL); /* sigaction permet de gerer les processus d'un signal specifique */
 	while (*message)
 	{
 		car = *message;
@@ -36,11 +36,11 @@ void	ft_transfer_message(pid_t srv_pid, char *message)
 		{
 			g_finished = false;
 			if (car & (1 << 7))
-				kill(srv_pid, SIGUSR1); // kill pernet d'envoyer un signal //
+				kill(srv_pid, SIGUSR1); /* kill pernet d'envoyer un signal */
 			else
 				kill(srv_pid, SIGUSR2);
 			while (!g_finished)
-				usleep(400); // met en pause l'envoie du signal pendant un tres petit temps //
+				usleep(400); /* met en pause l'envoie du signal pendant un tres petit temps */
 			car <<= 1;
 		}
 		message++;
