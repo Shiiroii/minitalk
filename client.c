@@ -22,12 +22,12 @@ void	ft_transfer_message(pid_t srv_pid, char *message)
 {
 	unsigned char		car;
 	int					bits;
-	struct sigaction	check; // sigaction permet de gerer les processus d'un signal specifique
+	struct sigaction	check;
 
 	check.sa_handler = is_it_done; // recoit a chaque envoi du signal le numero de celui-ci, permettant alors de faire une action a chaque fois // 
 	check.sa_flags = SA_RESTART; // permet de remettre a zero lors de linitialisation des signaux //
-	sigemptyset(&check.sa_mask);
-	sigaction(SIGUSR1, &check, NULL);
+	sigemptyset(&check.sa_mask); // initialise et vide un signal //
+	sigaction(SIGUSR1, &check, NULL); // sigaction permet de gerer les processus d'un signal specifique //
 	while (*message)
 	{
 		car = *message;
